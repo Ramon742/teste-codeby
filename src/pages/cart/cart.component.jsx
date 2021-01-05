@@ -1,8 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+
+import { connect } from 'react-redux';
+import { getItems } from '../../redux/item/item.actions';
 
 import './cart.styles.scss';
 
-const ProductsPage = () => {
+const ProductsPage = ({ getItems }) => {
+
+    useEffect(() => {
+        getItems();
+      }, [getItems]);
+
     return (
         <Fragment>
             <div id='product-page'>
@@ -72,4 +80,8 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage;
+const mapStateToProps = (state) => ({
+    items: state.items
+  });
+
+export default connect(mapStateToProps, { getItems })(ProductsPage);
