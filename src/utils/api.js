@@ -5,8 +5,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
     "Access-Control-Allow-Origin": "https://teste-codeby.herokuapp.com/"
-  },
-  withCredentials: true
+  }
 });
 
 export default api;
