@@ -3,13 +3,31 @@ import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getItems } from '../../redux/item/item.actions';
 
+import CartItem from '../../components/cart-item/cart-item.component';
+
 import './cart.styles.scss';
 
-const ProductsPage = ({ getItems }) => {
+const ProductsPage = ({ getItems, cart }) => {
 
     useEffect(() => {
         getItems();
       }, [getItems]);
+      
+    const selectTotal = (cart) => {
+        const total = cart.reduce(
+            (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantityBuy * cartItem.price,
+            0
+        )
+        return total;
+    }
+
+    const selectTotalSellingPrice = (cart) => {
+        const total = cart.reduce(
+            (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantityBuy * cartItem.sellingPrice,
+            0
+        )
+        return total;
+    }
 
     return (
         <Fragment>
@@ -20,49 +38,31 @@ const ProductsPage = ({ getItems }) => {
                     </div>
                     <hr/>
                     <div className='items'>
-                        <div className='item'>
-                            <div className='img'>
-                                <img src="http://codeby.vteximg.com.br/arquivos/ids/159959-800-1029/truffon-meio-amargo.png?v=636930938547630000" width='200px' height="200px" alt=""/>
-                            </div>
-                            <div className='info'>
-                                <p className='name'>Trufa de morango</p>
-                                <span className='price-1'>R$ 1,23</span>
-                                <span className='price-2'>R$ 1,11</span>
-                            </div>
-                        </div>
 
-                        <div className='item'>
-                            <div className='img'>
-                                <img src="http://codeby.vteximg.com.br/arquivos/ids/159959-800-1029/truffon-meio-amargo.png?v=636930938547630000" width='200px' height="200px" alt=""/>
-                            </div>
-                            <div className='info'>
-                                <p className='name'>Trufa de morango</p>
-                                <p className='price-1'>R$ 1,23</p>
-                                <p className='price-2'>R$ 1,11</p>
-                            </div>
-                        </div>
-
-                        <div className='item'>
-                            <div className='img'>
-                                <img src="http://codeby.vteximg.com.br/arquivos/ids/159959-800-1029/truffon-meio-amargo.png?v=636930938547630000" width='200px' height="200px" alt=""/>
-                            </div>
-                            <div className='info'>
-                                <p className='name'>Trufa de morango</p>
-                                <p className='price-1'>R$ 1,23</p>
-                                <p className='price-2'>R$ 1,11</p>
-                            </div>
-                        </div>
+                        {
+                            cart.map(item => (
+                                <CartItem item={item} />
+                            ))
+                        }
 
                         <hr/>
 
                         <div>
                             <div className="containerTotal">
-                                <span className="totalName">Total</span>
-                                <span className="totalPrice">R$ 13,31</span>
+                                <span className="totalName">Total parcelado</span>
+                                <span className="totalPrice">R$ {cart? selectTotal(cart) : 0}</span>
                             </div>
-                            <p className='free-shipping'>
+                            <div className="containerTotal">
+                                <span className="totalName">Total a vista</span>
+                                <span className="totalPrice">R$ {cart? selectTotalSellingPrice(cart) : 0}</span>
+                            </div>
+                            {
+                                selectTotal(cart) > 1000 ?
+                                <p className='free-shipping'>
                                 <span>Parabéns, sua compra tem frete grátis !</span>
-                            </p>
+                                </p> 
+                                : null
+                            }
                         </div>
 
                         <hr/>
@@ -81,7 +81,7 @@ const ProductsPage = ({ getItems }) => {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.items
+    cart: state.cart.cartItems
   });
 
 export default connect(mapStateToProps, { getItems })(ProductsPage);
