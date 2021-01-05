@@ -1,0 +1,11 @@
+#product-page {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 50px auto;
+    border-radius: 20px;
+    .cards-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}

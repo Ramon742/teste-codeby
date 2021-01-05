@@ -13,7 +13,7 @@ const ProductsPage = ({ getItems }) => {
 
     return (
         <Fragment>
-            <div id='product-page'>
+            <div id='cart-page'>
                 <div className='cart'>
                     <div className='title'>
                         <span>Meu Carrinho</span>

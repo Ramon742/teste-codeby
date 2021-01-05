@@ -1,0 +1,43 @@
+.card {
+    width: 300px;
+    border: 1px solid grey;
+    border-radius: 12px;
+    text-align: center;
+    margin: 15px 0;
+    .item-name {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .prices-container {
+
+        .price-1 {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(0, 0, 0, .5);
+        }
+        .price-2 {
+            display: block;
+            margin-top: 5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 1);
+        }
+    }
+
+    .btn {
+        border: none;
+        border-radius: 12px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 15px 0;
+        padding: 10px 15px;
+        background-color: rgb(59, 116, 242);
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(31, 91, 221);
+        }
+    }
+}

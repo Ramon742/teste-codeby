@@ -7,12 +7,12 @@ import {
 
 export const addItemToCart = (cartItems, cartItemToAdd) => async dispatch => {
     const existingCartItem = cartItems.find(
-        cartItem => cartItem._id === cartItemToAdd._id
+        cartItem => cartItem.id === cartItemToAdd.id
     );
 
     if (existingCartItem) {
         let cart = cartItems.map(cartItem =>
-            cartItem._id === cartItemToAdd._id
+            cartItem.id === cartItemToAdd.id
             ? { ...cartItem, quantityBuy: cartItem.quantityBuy + 1}
             : cartItem 
         )

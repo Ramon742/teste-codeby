@@ -1,0 +1,28 @@
+#header {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    .nav-item {
+    font-size: 2rem;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0 15px;
+    }
+
+    .cart-quantity {
+        background-color: rgb(59, 116, 242);
+        color: #ffffff;
+        font-size: 1.5rem !important;
+        font-weight: 700;
+        border-radius: 50px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
