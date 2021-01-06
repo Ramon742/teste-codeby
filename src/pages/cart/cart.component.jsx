@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import { getItems } from '../../redux/item/item.actions';
@@ -36,7 +36,6 @@ const ProductsPage = ({ getItems, cart }) => {
     }
 
     return (
-        <div>
             <div id='cart-page'>
                 <div className='cart'>
                     <div className='title'>
@@ -89,7 +88,6 @@ const ProductsPage = ({ getItems, cart }) => {
                     <Footer />
                 </div>
             </div>
-        </div>
     )
 }
 

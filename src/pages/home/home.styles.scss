@@ -1,0 +1,51 @@
+#home {
+    background-color: #ffffff;
+    max-width: 800px;
+    min-height: 650px;
+    margin: 50px auto;
+    border-radius: 20px;
+    background: linear-gradient( rgba(59, 117, 242, 0.7), rgba(0, 0, 0, 0.7) ), url('https://images.unsplash.com/photo-1579440676594-3fef6d6ef538?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+    background-position:25% 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .info {
+        color: #ffffff;
+        .container {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .store-name {
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+        .first-sentence {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        .second-sentence {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        .btn {
+            width: 400px;
+            border-radius: 50px;
+            border: none;
+            background-color: #ffffff;
+            color: #3B74F2;
+            margin-top: 40px;
+            height: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            &:hover {
+                color: #ffffff;
+                background-color: #3B74F2;
+                transition-duration: 0.3s;
+            }
+        }
+    }
+}
