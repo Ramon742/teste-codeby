@@ -3,6 +3,9 @@
     justify-content: flex-start;
     margin-top: 25px;
     margin-bottom: 25px;
+    @media screen and (max-width: 540px) {
+        flex-wrap: wrap;
+    }
     .img {
         border: 2px solid rgb(189, 189, 189);
         display: flex;
@@ -14,6 +17,9 @@
         .name {
             font-size: 1.5rem;
             font-weight: 800;
+            @media screen and (max-width: 640px) {
+                font-size: 1.2rem;
+            }
         }
         .price-1 {
             display: block;
@@ -27,6 +33,20 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: rgba(0, 0, 0, 1);
+        }
+        .quantity {
+            display: block;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .item-total {
+            display: block;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 1.2rem;
         }
     }
 }

@@ -6,13 +6,18 @@
     height: 50px;
     display: flex;
     justify-content: center;
-    .nav-item {
-    font-size: 2rem;
-    color: black;
-    font-weight: 700;
-    text-decoration: none;
-    margin: 0 15px;
-    }
+    align-items: center;
+        .nav-item {
+            font-size: 2rem;
+            color: black;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 0 3vw;
+            @media screen and (max-width: 600px) {
+                font-size: 1.5rem;
+            }
+        }
+        
 
     .cart-quantity {
         background-color: rgb(59, 116, 242);
@@ -24,5 +29,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @media screen and (max-width: 600px) {
+            font-size: 1rem;
+        }
+        @media screen and (max-width: 420px) {
+            display: none !important;
+        }
     }
 }

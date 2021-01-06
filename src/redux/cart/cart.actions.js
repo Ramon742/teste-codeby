@@ -32,11 +32,11 @@ export const addItemToCart = (cartItems, cartItemToAdd) => async dispatch => {
 
 export const removeItemFromCart = (cartItems, cartItemToRemove) => async dispatch => {
     const existingCartItem = cartItems.find(
-        cartItem => cartItem._id === cartItemToRemove._id
+        cartItem => cartItem.id === cartItemToRemove.id
     )
 
     if(existingCartItem.quantityBuy === 1) {
-        const cartUpdated = cartItems.filter(cartItem => cartItem._id !== cartItemToRemove._id)
+        const cartUpdated = cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
         dispatch({
             type: CLEAR_ITEM_FROM_CART,
             payload: cartUpdated
@@ -45,7 +45,7 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => async dispatc
     else{
         const cartUpdated = cartItems.map(
             cartItem => 
-            cartItem._id === cartItemToRemove._id ?
+            cartItem.id === cartItemToRemove.id ?
             {...cartItem, quantityBuy: cartItem.quantityBuy - 1 }
             : cartItem
         );

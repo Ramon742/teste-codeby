@@ -6,8 +6,12 @@ import { addItemToCart } from '../../redux/cart/cart.actions';
 import './item.styles.scss';
 
 const Item = ({ item, cart, addItemToCart }) => {
-    console.log(cart);
     const { name, imageUrl, price, sellingPrice } = item;
+
+    const showDecimalNumber = (str) =>{
+        return str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2, str.length);
+    }
+
     return (
         <div className='card'>
             <div className='card-img'>
@@ -19,10 +23,10 @@ const Item = ({ item, cart, addItemToCart }) => {
                 </span>
                 <div className='prices-container'>
                     <span className='price-1'>
-                        {`${sellingPrice} R$`}
+                        {`${showDecimalNumber(sellingPrice.toString())} R$`}
                     </span>
                     <span className='price-2'>
-                        {`${price} R$`}
+                        {`${showDecimalNumber(price.toString())} R$`}
                     </span>
                     <button onClick={() => addItemToCart(cart.cartItems, item)} className='btn'>Colocar no Carrinho</button>
                 </div>

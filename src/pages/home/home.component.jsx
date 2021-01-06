@@ -4,9 +4,9 @@ import './home.styles.scss';
 
 const HomePage = () => {
     return (
-        <Fragment >
+        <div>
             HomePage
-        </Fragment>
+        </div>
     )
 }
 

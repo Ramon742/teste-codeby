@@ -21,10 +21,16 @@
             .totalName {
                 font-size: 2.2rem;
                 font-weight: 800;
+                @media screen and (max-width: 640px) {
+                    font-size: 1.2rem;
+                }
             }
             .totalPrice {
                 font-size: 2.2rem;
                 font-weight: 800;
+                @media screen and (max-width: 640px) {
+                    font-size: 1.2rem;
+                }
             }
         }
         .free-shipping {
@@ -54,6 +60,13 @@
             &:hover {
                 background-color: rgb(31, 91, 221);
             }
+            @media screen and (max-width: 640px) {
+                font-size: 1.5rem;
+            }
         }
+    }
+
+    .empty-message {
+        font-size: 2rem;
     }
 }

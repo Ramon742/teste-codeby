@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getItems } from '../../redux/item/item.actions';
 
 import Item from '../../components/item/item.component';
+import Footer from '../../components/footer/footer.component';
 
 import './products.styles.scss';
 
@@ -13,18 +14,20 @@ const ProductPage = ({ getItems, items }) => {
         getItems();
       }, [getItems]);
 
-      //console.log(items);
     return (
-        <div id='product-page'>
-            <div className='cards-container'>
+        <Fragment>
+            <div id='product-page'>
+                <div className='cards-container'>
 
-                {
-                    items.map(item => (
-                        <Item item={item} />
-                    ))
-                }
+                    {
+                        items.map(item => (
+                            <Item item={item} />
+                        ))
+                    }
+                </div>
+                <Footer />
             </div>
-        </div>
+        </Fragment>
     )
 }
 
