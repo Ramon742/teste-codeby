@@ -4,7 +4,7 @@ import {
     ITEM_ERROR,
   } from './item.types';
 
-// Get posts
+
 export const getItems = () => async dispatch => {
   try {
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
@@ -12,21 +12,23 @@ export const getItems = () => async dispatch => {
     fetch(proxyUrl + targetUrl)
     .then(blob => blob.json())
     .then(data => {
-        console.log(data.items);
-    dispatch({
-        type: GET_ITEMS,
-        payload: data.items
-      });
+      dispatch({
+          type: GET_ITEMS,
+          payload: data.items
+        });
   })
   .catch(e => {
     console.log(e);
-    return e;
+    dispatch({
+      type: ITEM_ERROR,
+      payload: { msg: 'Algo deu errado, tente novamente mais tarde!', status: '400' }
+    });
   });
   } catch (err) {
     console.log(err);
     dispatch({
       type: ITEM_ERROR,
-      payload: { msg: 'Algo deu errado, tente novamente mais tarde!', status: '404' }
+      payload: { msg: 'Algo deu errado, tente novamente mais tarde!', status: '400' }
     });
   }
 }

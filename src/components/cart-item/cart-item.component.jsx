@@ -2,16 +2,13 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { addItemToCart, removeItemFromCart } from '../../redux/cart/cart.actions';
+import { showDecimalNumber } from '../../utils/functions';
 
 import './cart-item.styles.scss';
 
 const CartItem = ({ item, cart, addItemToCart, removeItemFromCart }) => {
     const { name, imageUrl, price, sellingPrice, quantityBuy } = item;
     const totalByItem = quantityBuy * sellingPrice;
-
-    const showDecimalNumber = (str) =>{
-        return str.substring(0, str.length - 2) + '.' + str.substring(str.length - 2, str.length);
-    }
 
     return (
         <div className='item'>

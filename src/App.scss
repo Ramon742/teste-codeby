@@ -1,13 +1,10 @@
-.app {
+body {
   background-color: rgb(209, 216, 229);
   position: absolute;
   width: 100%;
   min-height:100vh;
-  background-size: cover;
-}
-
-body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+

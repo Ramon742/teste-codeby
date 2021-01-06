@@ -20,7 +20,7 @@ const ProductPage = ({ getItems, items }) => {
 
                     {
                         items.map(item => (
-                            <Item item={item} />
+                            <Item item={item} key={item.id} />
                         ))
                     }
                 </div>

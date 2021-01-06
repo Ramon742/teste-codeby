@@ -12,7 +12,7 @@ const HomePage = () => {
                     <p className='store-name'>CANDY'S</p>
                     <span className='first-sentence'>Os melhores doces</span>
                     <span className='second-sentence'>Os melhores preços</span>
-                    <Link to='/produtos'>
+                    <Link to='/produtos' className='link'>
                     <button className='btn'>Comece a comprar</button>
                     </Link>
                 </div>
